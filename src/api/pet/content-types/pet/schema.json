@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pets",
+  "info": {
+    "singularName": "pet",
+    "pluralName": "pets",
+    "displayName": "pet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "date_of_birth": {
+      "type": "date"
+    },
+    "chip_number": {
+      "type": "string",
+      "regex": "^([0-9]){10,13}$",
+      "unique": true
+    },
+    "species": {
+      "type": "string",
+      "required": true
+    },
+    "race": {
+      "type": "string",
+      "required": false
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "pets"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "pet"
+    }
+  }
+}

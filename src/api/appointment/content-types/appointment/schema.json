@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "appointment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "visit_name": {
+      "type": "string",
+      "required": true
+    },
+    "Doctor": {
+      "type": "string"
+    },
+    "appointment": {
+      "type": "datetime",
+      "required": false
+    },
+    "description_of_the_visit": {
+      "type": "richtext"
+    },
+    "findings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::finding.finding",
+      "mappedBy": "visit"
+    },
+    "pet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pet.pet",
+      "inversedBy": "appointments"
+    }
+  }
+}

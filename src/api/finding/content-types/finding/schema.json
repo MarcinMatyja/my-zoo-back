@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "findings",
+  "info": {
+    "singularName": "finding",
+    "pluralName": "findings",
+    "displayName": "findings",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "finding_name": {
+      "type": "string"
+    },
+    "related_files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "visit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::appointment.appointment",
+      "private": true,
+      "inversedBy": "findings"
+    }
+  }
+}
