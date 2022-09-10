@@ -39,14 +39,16 @@ module.exports = (plugin) => {
     //   // return { jwt: newJwt };
     //   // comment out next lines, and refresh the request body's token like {token: 'xxx'}
     const { token } = ctx.request.body;
-    const payload = strapi.plugins["users-permissions"].services.jwt
+    const payload = await strapi.plugins["users-permissions"].services.jwt
       .verify(token)
       .catch((err) => {
         console.log("error");
       });
-    const newJwt = strapi.plugins["users-permissions"].services.jwt.issue({
-      id: payload.id,
-    });
+    const newJwt = await strapi.plugins["users-permissions"].services.jwt.issue(
+      {
+        id: payload.id,
+      }
+    );
     return { jwt: newJwt };
   };
 
