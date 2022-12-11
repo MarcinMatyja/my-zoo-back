@@ -39,6 +39,7 @@ module.exports = (plugin) => {
     //   // return { jwt: newJwt };
     //   // comment out next lines, and refresh the request body's token like {token: 'xxx'}
     const { token } = await ctx.request.body;
+    console.log(token);
     const payload = await strapi.plugins["users-permissions"].services.jwt
       .verify(token)
       .catch((err) => {
