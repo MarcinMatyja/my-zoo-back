@@ -21,7 +21,6 @@
     },
     "chip_number": {
       "type": "string",
-      "regex": "^([0-9]){10,13}$",
       "unique": true
     },
     "species": {
@@ -46,6 +45,9 @@
       "relation": "oneToMany",
       "target": "api::appointment.appointment",
       "mappedBy": "pet"
+    },
+    "color": {
+      "type": "string"
     }
   }
 }

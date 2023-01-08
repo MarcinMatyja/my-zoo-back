@@ -19,9 +19,9 @@
     "Doctor": {
       "type": "string"
     },
-    "appointment": {
+    "appointment_date": {
       "type": "datetime",
-      "required": false
+      "required": true
     },
     "description_of_the_visit": {
       "type": "richtext"
@@ -37,6 +37,9 @@
       "relation": "manyToOne",
       "target": "api::pet.pet",
       "inversedBy": "appointments"
+    },
+    "clinic": {
+      "type": "string"
     }
   }
 }
