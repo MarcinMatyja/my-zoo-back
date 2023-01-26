@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "finding_name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "related_files": {
       "type": "media",
